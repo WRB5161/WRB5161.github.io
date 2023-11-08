@@ -1,6 +1,6 @@
 ---
 name: Visualizing Student-Teacher ratio with spending and whether its Urban
-tools: [Python, HTML, vega-lite]
+tools: [Python, HTML, vega-lite, altair]
 image: assets/pngs/HW8_Chart1.png
 description: This combo visualization is for HW8 of IS 445
 custom_js:
