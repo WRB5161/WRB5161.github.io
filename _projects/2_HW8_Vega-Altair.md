@@ -23,7 +23,7 @@ This heatmap shows us a 10x10 heatmap. I decided on bins of 10 for each axis as 
 
 ## Chart 2: Bar
 
-<img src="/assets/pngs/HW8_Chart2.png">
+<img src="/assets/pngs/HW8_Chart2.png"></img>
 
 This second chart has no interaction within itself, however when we combine it with our first chart it will provide us a breakdown of Urban vs non-Urban schools within our selection on the heatmap. This chart is simple in nature, however, it took some work on the analysis side of things. The initial dataframe reports urban as a '1' or a '0', and I decided mapping this to a 'Y' indicating it is Urban, and 'N' to indicate it is non-Urban. I think this is really interesting to see as there are some surprising trends that can be seen when looking at specific ranges from our first chart. Before we look at the combined chart, let's see what a snippet of our dataset looked like before we transformed it into our visualizations.
 
@@ -31,7 +31,7 @@ This second chart has no interaction within itself, however when we combine it w
 
 This data comes from [the is445 dataset collection](https://raw.githubusercontent.com/UIUC-iSchool-DataViz/is445_data/main/mobility.csv), however it is not one I had analyzed prior to this. Here is a snippet of our dataset with only the relevant columns showing.
 
-<img src="/assets/pngs/HW8_dataset.png">
+<img src="/assets/pngs/HW8_dataset.png"></img>
 
 Now that we can see some of the raw data, let's see the final thing!
 
