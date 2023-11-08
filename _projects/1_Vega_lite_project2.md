@@ -1,8 +1,8 @@
 ---
-name: Vega Lite Example Project
+name: Visualizing Student-Teacher ratio with spending and whether its Urban
 tools: [Python, HTML, vega-lite]
 image: assets/pngs/cars.png
-description: This is a "showcase" project that uses vega-lite for interactive viz!
+description: This combo visualization is for HW8 of IS 445
 custom_js:
   - vega.min
   - vega-lite.min
@@ -11,42 +11,25 @@ custom_js:
 ---
 
 
-# Example including vega-lite
+# Here is a snippet of the dataset
 
-Example comes from this [great blog post right here](https://blog.4dcu.be/programming/2021/05/03/Interactive-Visualizations.html) that was also used in [our test import script](https://github.com/UIUC-iSchool-DataViz/is445_bcubcg_fall2022/blob/main/week01/test_imports_week01.ipynb).
+This data comes from [the is445 dataset collection](https://raw.githubusercontent.com/UIUC-iSchool-DataViz/is445_data/main/mobility.csv) that we have not gotten to use yet. Here is a snippet our dataset with only the relevant columns showing.
 
-We can use a vegachart HTML tag like so:
-
-```
-<vegachart schema-url="{{ site.baseurl }}/assets/json/cars.json" style="width: 100%"></vegachart>
-```
-
-<vegachart schema-url="{{ site.baseurl }}/assets/json/cars.json" style="width: 100%"></vegachart>
-
-In theory, you can also use [Jekyll hooks](https://jekyllrb.com/docs/plugins/hooks/) to do it, but I haven't figured out a way that looks nice yet.
+<img id="dataset snippet" src="/Users/williambechtel/Documents/College/FA23 Courses/IS 445/Python Notebooks/HW8_dataset.png" alt='dataset></img>
 
 
-## Search The Data & Methods
 
-Below is where we can put some links to both the data and the analysis code as buttons:
+## Final Viz
 
-```
-<div class="left">
-{% include elements/button.html link="https://github.com/vega/vega/blob/main/docs/data/cars.json" text="The Data" %}
-</div>
+The following two charts depict the school spending as it relates to student teacher ratio and how that is broken down between Urban vs non-Urban schools
 
-<div class="right">
-{% include elements/button.html link="https://blog.4dcu.be/programming/2021/05/03/Interactive-Visualizations.html" text="The Analysis" %}
-</div>
-```
+<vegachart schema-url="/Users/williambechtel/Documents/College/FA23 Courses/IS 445/Python Notebooks/HW8_Chart3.json" style="width: 100%"></vegachart>
+
 
 <!-- these are written in a combo of html and liquid --> 
 
 <div class="left">
-{% include elements/button.html link="https://github.com/vega/vega/blob/main/docs/data/cars.json" text="The Data" %}
+{% include elements/button.html link="https://raw.githubusercontent.com/UIUC-iSchool-DataViz/is445_data/main/mobility.csv" text="The Data" %}
 </div>
 
-<div class="right">
-{% include elements/button.html link="https://github.com/jnaiman/online_cv_public/blob/main/python_notebooks/test_generate_plots.ipynb" text="The Analysis" %}
-</div>
 
