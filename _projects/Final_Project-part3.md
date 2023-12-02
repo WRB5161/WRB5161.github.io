@@ -28,7 +28,8 @@ What's that saying about eating dessert first... Life's too short, best figure f
 
 Jumping right in, we see our dashboard comprised of two key components, the map and the bar charts. Before looking at one in particular let's play with the dashboard first. 
 
-<vegachart schema-url="{{ site.baseurl }}/assets/json/FP3_Dashboard.json" style="width: 100%"></vegachart>
+<vegachart schema-url="{{ site.baseurl }}/assets/json/FP3_solarmap1.json" style="width: 50%"></vegachart> <vegachart schema-url="{{ site.baseurl }}/assets/json/FP3_bars1.json" style="width: 50%"></vegachart>
+
 
 As you play around there are a few details to note, the first is that this dashboard hinges on the map's interactivity. You are able to select a box area and view the relative production of each site compared to its expected production over its lifespan (dates were filtered to start Jan 1, 2018). Some things to note about the map are that the shapes and colors are different. The color merely represents the department that operates/owns the site, and the size is indicative of the average maximum output of the relative to the sites within the city. Over on the adjacent bar chart you will notice a few things as well, and the first is that the scale of the Y-axis is odd. We needed to use a 'symlog' scale as two of the sites in Bloomington are significantly larger, and thus throw off the proportions of the bar chart when they're included normally. That's to say, without a 'symlog' scale, and using a linear scale instead, and our bar chart looks like the one below, not too useful. The final thing you will notice about our lovely bar chart is the opacity of each bar, which is grouped based on the number of days in which the site produced any energy (defined as the watt_hours being greater than 0). 
 
