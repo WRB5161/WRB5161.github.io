@@ -63,6 +63,6 @@ Finally, this scatter plot is quite neat, as each point represents observations 
 </div>
 
 <div class="right">
-{% include elements/button.html link="https://us.prairielearn.com/pl/workspace/1384174/container/lab/tree/Workbook.ipynb" text="The Analysis" %}
+{% include elements/button.html link="https://us.prairielearn.com/pl/workspace/1384174/container/lab/tree/Workbook1.ipynb" text="The Analysis" %}
 </div>
 
