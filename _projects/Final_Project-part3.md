@@ -11,32 +11,27 @@ custom_js:
   - vl-convert-python
 ---
 
+<div class="center">
 Author: William Bechtel
+</div>
 
 # Let's Look At The Data!
 
 This data comes from [Indiana.gov](https://catalog.data.gov/dataset/solar-data-f09f3). They provide the dataset in multiple formats, however I used it as a csv
 
-<img src="/assets/pngs/FP3_Data.png">
+<img src="/assets/pngs/FP3_Data1.png">
 
 This dataset contains 12 variables for each observation, including the index which is 'site_id'. Each observation/row of the dataset represents the solar production aggregates for that given date. The variables for each site include the address, name of the site, latitude and longitude of the site, and the department that owns/operates the facility. For the solar measurements there are a number of variables: watt_min and watt_max for that given date, the watt_avg which is a cumulative average production rate, and the watt_hours and watt_hours_expected represent the amount of energy that is expected to be generated and the actual amount that was generate. All of these values are in Watt's (and Wh) and not the more common kW (and kWh). This was a bit confusing at first but it's not too hard when looking at graphics to be able to understand relational details.
 
-onto our figures!
+<div class="center">
+Onto our figures!
+</div>
 
-## Figure 1: The Dashboard
+## Figure 1: The First Bar Chart
 
-What's that saying about eating dessert first... Life's too short, best figure first? Sound about right, let's see it!
+<vegachart schema-url="{{ site.baseurl }}/assets/json/FP3_bars5.json" style="width: 100%"></vegachart>
 
-Jumping right in, we see our dashboard comprised of two key components, the map and the bar charts. Before looking at one in particular let's play with the dashboard first. 
-
-<vegachart schema-url="{{ site.baseurl }}/assets/json/FP3_Dashboard (5).json" style="width: 100%"></vegachart>
-
-<vegachart schema-url="{{ site.baseurl }}/assets/json/FP3_solarmap1.json" style="width: 50%"></vegachart> 
-
-<vegachart schema-url="{{ site.baseurl }}/assets/json/FP3_bars1.json" style="width: 50%"></vegachart>
-
-
-As you play around there are a few details to note, the first is that this dashboard hinges on the map's interactivity. You are able to select a box area and view the relative production of each site compared to its expected production over its lifespan (dates were filtered to start Jan 1, 2018). Some things to note about the map are that the shapes and colors are different. The color merely represents the department that operates/owns the site, and the size is indicative of the average maximum output of the relative to the sites within the city. Over on the adjacent bar chart you will notice a few things as well, and the first is that the scale of the Y-axis is odd. We needed to use a 'symlog' scale as two of the sites in Bloomington are significantly larger, and thus throw off the proportions of the bar chart when they're included normally. That's to say, without a 'symlog' scale, and using a linear scale instead, and our bar chart looks like the one below, not too useful. The final thing you will notice about our lovely bar chart is the opacity of each bar, which is grouped based on the number of days in which the site produced any energy (defined as the watt_hours being greater than 0). 
+On our first bar chart you will notice a few things a few things, and the first is that the scale of the Y-axis is unusual. For this data we needed to use a 'symlog' scale as two of the sites in Bloomington are significantly larger, and thus throw off the proportions of the bar chart when they're included with a linear scale. That's to say, without a 'symlog' scale, if we used a linear scale instead, our bar chart looks like the one below, not too useful. The final thing you will notice about our lovely bar chart is the opacity of each bar, which is grouped based on the number of days in which the site produced any energy (defined as the watt_hours being greater than 0). 
 
 <vegachart schema-url="{{ site.baseurl }}/assets/json/FP3_bars4.json" style="width: 100%"></vegachart>
 
@@ -45,14 +40,14 @@ As you play around there are a few details to note, the first is that this dashb
 
 <vegachart schema-url="{{ site.baseurl }}/assets/json/FP3_solar_map2.json" style="width: 100%"></vegachart>
 
-Our map is by far the most crucial aspect of our dashboard. This slightly modified map has the shape and color mapped to the department that operates the facility, and the size is now indicative of the count of days that dictated the opacity of the bars in the dashboard. As you hover over a point you can also see the name of the site for a better understanding of where certain sites are located. The other notabble feature of th map is the background layer. I'm using a geojson file collected from [Indiana.gov](https://www.indianamap.org/datasets/INMap::road-centerlines-of-indiana-current/explore?location=39.169713%2C-86.520274%2C12.91) which contains the road center lines as line geometry. Using a filtered version of this allowed me to produce a nice background road map of Bloomington that makes the orientation and location of each site around the city more clear.
+Our map is crucial in understanding where these sites are located and how they compare to one another. This map has the shape and color mapped to the department that operates the facility, and the size is now represented by the count of days that was used for the bar chart opacity. As you hover over a point you can also see the name of the site for a better understanding of where certain sites are located. The other notable feature of the map is the background layer. I'm using a geojson file collected from [Indianamap.org](https://www.indianamap.org/datasets/INMap::road-centerlines-of-indiana-current/explore?location=39.169713%2C-86.520274%2C12.91) which contains the road center lines of Indiana as line geometry. Using a filtered version of this allowed me to produce a nice background map of Bloomington roads that makes the orientation and location of each site around the city more clear.
 
 
-## Figure 3: The Bar
+## Figure 3: The Other Bar
 
 <vegachart schema-url="{{ site.baseurl }}/assets/json/FP3_bars3.json" style="width: 100%"></vegachart>
 
-This bar chart is different than the one from our dashboard but is a nice visual. It displays the sites across the x-axis and the y-axis is the average number of watts produced per day by that site across its lifespan since 1/1/2018. The color dictates which department the facility is operate by, and helps us see that park/rec centers are apparently really good places to add solar installations. This also shows us that there are also a lot of sites really seem to lack substantial production values, and it makes me question the economic viability of some of those sites. Let's check out our final figure.
+This bar chart is different than the one from before, but still quite useful. It displays the sites across the x-axis and the y-axis is the average number of watts produced per day by that site across its lifespan since 1/1/2018. The color dictates which department the facility is operated by, and helps us see that park/rec centers are apparently really good places to add solar installations. This also shows us that there are also a lot of sites really seem to lack substantial production values, and it makes me question the economic viability of some of those sites. Let's check out our final figure.
 
 
 ## Figure 4: The Scatter
