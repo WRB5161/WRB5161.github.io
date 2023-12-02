@@ -14,9 +14,9 @@ Author: William Bechtel
 
 # Let's Look At The Data!
 
-This data comes from [Indiana.gov](https://catalog.data.gov/dataset/solar-data-f09f3). 
+This data comes from [Indiana.gov](https://catalog.data.gov/dataset/solar-data-f09f3). They provide the dataset in multiple formats, however I used it as a csv
 
-<img src="/assets/pngs/FP3_data.png">
+<img src="/assets/pngs/FP3_Data.png">
 
 This dataset contains 12 variables for each observation, including the index which is 'site_id'. Each observation/row of the dataset represents the solar production aggregates for that given date. The variables for each site include the address, name of the site, latitude and longitude of the site, and the department that owns/operates the facility. For the solar measurements there are a number of variables: watt_min and watt_max for that given date, the watt_avg which is a cumulative average production rate, and the watt_hours and watt_hours_expected represent the amount of energy that is expected to be generated and the actual amount that was generate. All of these values are in Watt's (and Wh) and not the more common kW (and kWh). This was a bit confusing at first but it's not too hard when looking at graphics to be able to understand relational details.
 
